@@ -9,10 +9,14 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
 
+/// <summary>
+/// 这个类实现了找到墙体最下面的面，并且输出这个面的面积
+/// </summary>
 namespace RevitProjects
 {
     [Autodesk.Revit.Attributes.Transaction(TransactionMode.Manual)]
-    class WallBottomFace : IExternalCommand
+    
+    class CmdWallBottomFace : IExternalCommand
     {
         public const double _tolerance = 0.001;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)

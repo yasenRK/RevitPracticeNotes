@@ -9,7 +9,9 @@ using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.DB.Plumbing;
 using Autodesk.Revit.DB.Structure;
 
-
+/// <summary>
+/// 这个静态类封装了一些常用的方法
+/// </summary>
 namespace RevitProjects
 {
 

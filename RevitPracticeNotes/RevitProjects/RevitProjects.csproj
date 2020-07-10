@@ -49,9 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CmdChangeElementColor.cs" />
+    <Compile Include="CmdChangeElementMaterial.cs" />
+    <Compile Include="CmdCreateFloorAccordingToRoomBoundary.cs" />
+    <Compile Include="CmdCreateWallType.cs" />
+    <Compile Include="CmdCustomTitleblock.cs" />
+    <Compile Include="CmdFlipDoorFacing.cs" />
+    <Compile Include="CmdFlipDoorHand.cs" />
     <Compile Include="MySelectionFilter.cs" />
     <Compile Include="MyUtils.cs" />
-    <Compile Include="WallBottomFace.cs" />
+    <Compile Include="CmdWallBottomFace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
