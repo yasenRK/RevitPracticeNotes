@@ -7,7 +7,9 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
-
+/// <summary>
+/// 这个类实现了改变一个元素的填充颜色，颜色随机生成
+/// </summary>
 namespace RevitProjects
 { 
     [Autodesk.Revit.Attributes.Transaction(TransactionMode.Manual)]
@@ -40,7 +42,7 @@ namespace RevitProjects
             byte _R = (byte)new Random().Next(0, 255);
             byte _G = (byte)new Random().Next(0, 255);
             byte _B = (byte)new Random().Next(0, 255);
-            Color color = new Color(_R,_G,_B);
+            Color color = new Color(255,_G,_B);
             //Color color = new Color(255,0,0);
             FillPatternElement fp = new FilteredElementCollector(doc).OfClass(typeof(FillPatternElement)).First(m => (m as FillPatternElement).GetFillPattern().IsSolidFill) as FillPatternElement;
             OverrideGraphicSettings ogs = new OverrideGraphicSettings();

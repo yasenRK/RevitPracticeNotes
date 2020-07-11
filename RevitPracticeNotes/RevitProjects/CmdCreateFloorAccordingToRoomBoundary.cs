@@ -9,7 +9,9 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.DB.Structure;
-
+/// <summary>
+/// 这个类实现了根据房间边界生成楼板，这里用的是房间边界的面层作为边界
+/// </summary>
 namespace RevitProjects
 {
     [Autodesk.Revit.Attributes.Transaction(TransactionMode.Manual)]
