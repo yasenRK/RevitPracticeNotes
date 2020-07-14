@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CmdBeamAlignToRoofAndFloor.cs" />
     <Compile Include="CmdChangeElementColor.cs" />
     <Compile Include="CmdChangeElementMaterial.cs" />
     <Compile Include="CmdCreateColumnsOnGridsIntersections.cs" />
