@@ -6,6 +6,6 @@
 
 
 
-参考:
-[Jeremy的github和博客](https://github.com/jeremytammik/the_building_coder_samples)  
-[Youtube Video](https://youtu.be/oN_Wu2hcmag)
+参考:  
+* [Jeremy的github和博客](https://github.com/jeremytammik/the_building_coder_samples)  
+* [Youtube Video](https://youtu.be/oN_Wu2hcmag)
