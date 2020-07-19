@@ -59,6 +59,7 @@
     <Compile Include="CmdCutLineBasedElement.cs" />
     <Compile Include="CmdFlipDoorFacing.cs" />
     <Compile Include="CmdFlipDoorHand.cs" />
+    <Compile Include="CmdHideLinkedCADDrawingLayer.cs" />
     <Compile Include="CmdTest.cs" />
     <Compile Include="MySelectionFilter.cs" />
     <Compile Include="MyUtils.cs" />

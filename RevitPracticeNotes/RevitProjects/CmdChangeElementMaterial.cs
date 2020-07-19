@@ -27,16 +27,51 @@ namespace RevitProjects
 
 
             //List<Material> materials = new FilteredElementCollector(doc)
-            List<Material> materials =new List<Material>( new FilteredElementCollector(doc).OfClass(typeof(Material)).WhereElementIsNotElementType().ToElements().Where<Element>(m => m.Id.IntegerValue != elem.Category.Material.Id.IntegerValue).Cast<Material>());
+           // List<Material> materials =new List<Material>( new FilteredElementCollector(doc).OfClass(typeof(Material)).WhereElementIsNotElementType().ToElements().Where<Element>(m => m.Id.IntegerValue != elem.Category.Material.Id.IntegerValue).Cast<Material>());
+            List<Material> materials =new List<Material>( new FilteredElementCollector(doc).OfClass(typeof(Material)).WhereElementIsNotElementType().ToElements().Cast<Material>());
+            Material mm = default(Material);
+            List<Material> res = new List<Material>();
+            foreach (Material m in materials)
+            {
+                if (m.Name.Contains("混凝土"))
+                    {
+                    res.Add(m);
+                }
+                
+            }
+            //foreach (Material m in materials)
+            //{
+            //    message += m.Name + "\n";
+            //}
+
             Random r = new Random();
+            try
+            {
+
             using(Transaction ts=new Transaction(doc,"change element material"))
             {
                 ts.Start();
-                elem.Category.Material = materials[r.Next(materials.Count)];
+                    elem.Category.Material = res[r.Next(res.Count)];
+                    //elem.Category.Material = doc.GetElement(Material.Create(doc, "混凝土")) as Material;
+                    //if(mm!=null)
+                    //{
+
+                    //elem.Category.Material = mm;
+                    //}
+                    //else
+                    //{
+                    //    TaskDialog.Show("Error", "null");
+                    //}
+
                 ts.Commit();
             }
 
-
+            }
+            catch(Exception ex)
+            {
+                TaskDialog.Show("Error", ex.Message);
+            }
+           TaskDialog.Show("Message", $"{res.Count}");
 
             return Result.Succeeded;
         }
