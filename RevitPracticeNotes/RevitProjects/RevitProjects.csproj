@@ -54,6 +54,7 @@
     <Compile Include="CmdChangeElementMaterial.cs" />
     <Compile Include="CmdCreateColumnsOnGridsIntersections.cs" />
     <Compile Include="CmdCreateFloorAccordingToRoomBoundary.cs" />
+    <Compile Include="CmdCreateWallSweepAroundInRoom.cs" />
     <Compile Include="CmdCreateWallType.cs" />
     <Compile Include="CmdCustomTitleblock.cs" />
     <Compile Include="CmdCutLineBasedElement.cs" />
