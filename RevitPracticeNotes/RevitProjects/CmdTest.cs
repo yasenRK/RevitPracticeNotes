@@ -24,25 +24,33 @@ namespace RevitProjects
             Selection selection = uidoc.Selection;
             Reference reff = selection.PickObject(ObjectType.PointOnElement);
             Element elem = doc.GetElement(reff);
-            GeometryObject geoObj = elem.GetGeometryObjectFromReference(reff);
+
+            ImportInstance instance = elem as ImportInstance;
+            GeometryObject geo = instance.GetGeometryObjectFromReference(reff) as GeometryObject;
             Category targetCategory = null;
-            if(geoObj.GraphicsStyleId!=ElementId.InvalidElementId)
+            if(geo.GraphicsStyleId!=ElementId.InvalidElementId)
             {
-                GraphicsStyle gs = doc.GetElement(geoObj.GraphicsStyleId) as GraphicsStyle;
+                GraphicsStyle gs = doc.GetElement(geo.GraphicsStyleId) as GraphicsStyle;
                 if(gs!=null)
                 {
                     targetCategory = gs.GraphicsStyleCategory;
                 }
             }
-
-            using(Transaction ts=new Transaction(doc,"隐藏特定的图层"))
+            using(Transaction ts=new Transaction(doc,"hide layer"))
             {
                 ts.Start();
-
                 doc.ActiveView.SetVisibility(targetCategory, false);
-
                 ts.Commit();
             }
+
+            GeometryElement geoElement = elem.get_Geometry(new Options());
+            if(geoElement==null || geo.GraphicsStyleId==null)
+            {
+                message += "几何元素或者Id不存在";
+                return Result.Failed;
+            }
+
+          //  List<CADModel> curveArrayList=
 
 
             return Result.Succeeded;
